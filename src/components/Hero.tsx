@@ -4,10 +4,10 @@ import { SITE, WA_TRIAL } from "../lib/site";
 import { ArrowIcon, WhatsAppIcon } from "./Icons";
 
 const STATS = [
-  { k: "1:1", v: "Private coaching" },
-  { k: "6", v: "Students per group" },
-  { k: "Free", v: "First class, always" },
-  { k: "All", v: "Ages 5 to 65" },
+  { k: "Focus", v: "Better concentration" },
+  { k: "Logic", v: "Sharper thinking" },
+  { k: "Confidence", v: "Learn by playing" },
+  { k: "Free", v: "First lesson" },
 ];
 
 export default function Hero() {

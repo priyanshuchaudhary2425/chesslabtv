@@ -15,53 +15,63 @@ const ROWS = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative pb-24 pt-4 sm:pb-28">
-      <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
-        <div className="overflow-hidden rounded-[26px] border border-line bg-cream-50 shadow-[0_40px_80px_-60px_rgba(18,39,29,.8)]">
+    <section id="contact" className="relative bg-cream-50/30 pb-24 pt-10 sm:pb-32">
+      <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
+        
+        {/* Premium Card Container */}
+        <div className="overflow-hidden rounded-[32px] border border-gold/20 bg-white shadow-[0_24px_64px_-12px_rgba(18,39,29,0.06)] transition-shadow duration-500 hover:shadow-[0_32px_80px_-16px_rgba(18,39,29,0.1)]">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
-            {/* left */}
-            <div className="p-8 sm:p-12">
+            
+            {/* Left Column: Contact Details */}
+            <div className="p-8 sm:p-14 lg:p-16">
               <Reveal>
-                <p className="label flex items-center gap-2.5 text-gold">
-                  <span className="h-px w-6 bg-gold" />
-                  Checkmate — your move
-                </p>
-                <h2 className="mt-5 font-display text-[clamp(28px,4.6vw,40px)] font-semibold leading-[1.06] tracking-[-0.02em] text-forest-900">
-                  Let's get you on the board.
+                <div className="inline-flex items-center gap-3">
+                  <span className="h-px w-8 bg-gold/50" />
+                  <span className="font-sans text-[11px] font-bold tracking-[0.2em] text-gold uppercase">
+                    Your Move
+                  </span>
+                </div>
+                
+                <h2 className="mt-6 font-display text-[clamp(32px,4.5vw,44px)] font-medium leading-[1.05] tracking-tight text-forest-900">
+                  Let's get you <br className="hidden sm:block"/>
+                  <span className="font-light italic text-forest-900/70">on the board.</span>
                 </h2>
-                <p className="mt-4 max-w-[44ch] text-[16px] leading-relaxed text-ink-soft">
-                  Reach out on WhatsApp or call directly and we'll find a slot for your
-                  free trial class this week.
+                
+                <p className="mt-5 max-w-[42ch] text-[16.5px] font-light leading-relaxed text-ink-soft">
+                  Reach out on WhatsApp or call directly, and we'll find a slot for your free trial class this week.
                 </p>
               </Reveal>
 
-              <div className="mt-9">
+              <div className="mt-12 flex flex-col">
                 {ROWS.map((r, i) => {
                   const Icon = r.icon;
                   const content = (
                     <>
-                      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-line bg-cream text-forest-900 transition-colors duration-200 group-hover:border-gold group-hover:bg-gold/10">
-                        <Icon />
+                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-line bg-cream-50/50 text-forest-900 transition-all duration-300 group-hover:scale-110 group-hover:border-gold/50 group-hover:bg-gold/10 group-hover:text-gold">
+                        <Icon className="h-5 w-5" />
                       </span>
-                      <span>
-                        <span className="label block text-sage">{r.label}</span>
-                        <span className="mt-0.5 block text-[16px] font-medium text-ink">
+                      <div className="flex flex-col">
+                        <span className="font-sans text-[12px] font-semibold uppercase tracking-wider text-sage">
+                          {r.label}
+                        </span>
+                        <span className="mt-1 font-display text-[17px] font-medium tracking-wide text-forest-900 transition-colors group-hover:text-gold">
                           {r.value}
                         </span>
-                      </span>
+                      </div>
                     </>
                   );
+
                   return (
                     <Reveal key={r.label} delay={i * 80}>
                       {r.href ? (
                         <a
                           href={r.href}
-                          className="group flex items-center gap-4 border-b border-line py-5 first:border-t"
+                          className="group flex items-center gap-5 border-b border-line py-6 first:border-t hover:bg-black/[0.01]"
                         >
                           {content}
                         </a>
                       ) : (
-                        <div className="group flex items-center gap-4 border-b border-line py-5">
+                        <div className="group flex items-center gap-5 border-b border-line py-6">
                           {content}
                         </div>
                       )}
@@ -74,51 +84,61 @@ export default function Contact() {
                 <a
                   href={WA_ASK}
                   target="_blank"
-                  rel="noopener"
-                  className="group mt-9 inline-flex items-center gap-2.5 rounded-xl bg-forest-900 px-7 py-4 text-[15px] font-semibold text-cream-50 transition-all duration-200 hover:-translate-y-0.5 hover:bg-forest-800 hover:shadow-[0_20px_38px_-20px_rgba(18,39,29,.9)]"
+                  rel="noopener noreferrer"
+                  className="group mt-10 inline-flex items-center gap-3 overflow-hidden rounded-sm bg-forest-900 px-8 py-4 transition-all duration-500 hover:bg-forest-800"
                 >
-                  <WhatsAppIcon />
-                  Message ChessLabTV
-                  <ArrowIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                  <WhatsAppIcon className="relative z-10 h-4 w-4 text-gold" />
+                  <span className="relative z-10 font-sans text-[13px] font-bold uppercase tracking-wide text-gold">
+                    Message ChessLabTV
+                  </span>
+                  <ArrowIcon className="relative z-10 h-4 w-4 text-gold transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
               </Reveal>
             </div>
 
-            {/* right */}
-            <div className="relative min-h-[320px] overflow-hidden bg-forest-900">
+            {/* Right Column: WhatsApp Group */}
+            <div className="relative flex min-h-[400px] flex-col justify-end overflow-hidden bg-forest-900 p-8 sm:p-14 lg:p-16">
+              {/* Refined Image Treatment */}
               <img
-                src="https://images.pexels.com/photos/12214749/pexels-photo-12214749.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+                src="https://images.pexels.com/photos/12214749/pexels-photo-12214749.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=600"
                 alt="Close-up of a knight on a wooden chessboard"
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover opacity-45"
+                className="absolute inset-0 h-full w-full object-cover opacity-40 mix-blend-luminosity transition-transform duration-1000 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-900 via-forest-900/70 to-forest-900/20" />
-              <div className="relative flex h-full flex-col justify-end p-8 sm:p-12">
-                <Reveal>
-                  <span className="label inline-flex rounded-full bg-gold px-3 py-1.5 text-forest-900">
-                    Community
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-900 via-forest-900/80 to-transparent" />
+              
+              <Reveal className="relative z-10">
+                <span className="inline-flex rounded-full border border-gold/30 bg-gold/10 px-3 py-1 font-sans text-[11px] font-bold uppercase tracking-widest text-gold backdrop-blur-sm">
+                  Community
+                </span>
+                
+                <h3 className="mt-6 font-display text-[28px] font-medium leading-tight text-cream-50">
+                  Join the ChessLabTV <br />
+                  <span className="italic text-gold-soft">WhatsApp Club.</span>
+                </h3>
+                
+                <p className="mt-4 max-w-[32ch] text-[15.5px] font-light leading-relaxed text-cream-50/70">
+                  A daily puzzle, session reminders, and results from our students — free to follow, even before you take a class.
+                </p>
+                
+                {/* Embedded WhatsApp Link */}
+                <a
+                  href="https://chat.whatsapp.com/EpKvNXbM0qF1W05PesYDzJ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mt-8 inline-flex w-full items-center justify-center gap-3 rounded-sm border border-gold/50 bg-gold/10 px-8 py-4 backdrop-blur-sm transition-all duration-300 hover:bg-gold sm:w-auto"
+                >
+                  <WhatsAppIcon className="h-4 w-4 text-gold transition-colors duration-300 group-hover:text-forest-900" />
+                  <span className="font-sans text-[13px] font-bold uppercase tracking-wide text-gold transition-colors duration-300 group-hover:text-forest-900">
+                    Join the Group
                   </span>
-                  <h3 className="mt-5 font-display text-[24px] font-semibold leading-tight text-cream-50">
-                    Join the ChessLabTV WhatsApp group
-                  </h3>
-                  <p className="mt-3 max-w-[36ch] text-[15px] leading-relaxed text-cream-50/70">
-                    A daily puzzle, session reminders and results from our students —
-                    free to follow, even before you join a class.
-                  </p>
-                  <a
-                    href={SITE.groupLink}
-                    target="_blank"
-                    rel="noopener"
-                    className="mt-7 inline-flex w-full items-center justify-center gap-2.5 rounded-xl border border-gold/70 bg-gold/10 px-6 py-3.5 text-[14.5px] font-semibold text-gold-soft transition-colors duration-200 hover:bg-gold hover:text-forest-900 sm:w-auto"
-                  >
-                    <WhatsAppIcon className="h-[17px] w-[17px]" />
-                    Join the group
-                  </a>
-                </Reveal>
-              </div>
+                </a>
+              </Reveal>
             </div>
+            
           </div>
         </div>
+        
       </div>
     </section>
   );

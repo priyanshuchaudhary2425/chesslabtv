@@ -12,12 +12,12 @@ const QA = [
     a: "From around five years old up to adults. Kids and adults are taught in separate group batches, and 1:1 coaching is always shaped around the individual.",
   },
   {
-    q: "Are classes online or in person?",
-    a: "Both. In-person sessions are held in Silvassa; online sessions run over video with a shared digital board, which works well for students outside the area.",
+    q: "Are the classes online or in-person?",
+    a: "All our sessions are exclusively online. We run them over live video using a shared, interactive digital chessboard. Students and coaches can move pieces, highlight squares, and draw arrows in real-time — it's highly engaging and works perfectly from anywhere in the world.",
   },
   {
     q: "How long is each session, and how often?",
-    a: "Sessions typically run 45–60 minutes. Most students take one or two sessions a week — we'll suggest a rhythm after the trial class.",
+    a: "Sessions typically run 45–60 minutes. We'll suggest a comfortable learning rhythm after evaluating the student in the free trial class.",
   },
   {
     q: "Do you prepare students for tournaments?",
@@ -36,6 +36,8 @@ export default function Faq() {
     <section id="faq" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          
+          {/* Header Column */}
           <Reveal>
             <p className="label flex items-center gap-2.5 text-gold">
               <span className="h-px w-6 bg-gold" />
@@ -49,6 +51,7 @@ export default function Faq() {
             </p>
           </Reveal>
 
+          {/* Accordion Column */}
           <div>
             {QA.map((item, i) => {
               const isOpen = open === i;
@@ -92,6 +95,7 @@ export default function Faq() {
               );
             })}
           </div>
+          
         </div>
       </div>
     </section>

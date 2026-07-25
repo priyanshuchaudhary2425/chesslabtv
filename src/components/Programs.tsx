@@ -23,7 +23,7 @@ const PROGRAMS = [
     title: "Group sessions",
     lede: "Structured monthly batches with a handful of players at a similar level.",
     points: [
-      "Maximum six students per batch",
+      "Individual feedback for every student",
       "Themed classes: tactics, endgames, openings",
       "Friendly rated games every session",
       "Level-matched: beginner, intermediate, club",
@@ -130,12 +130,6 @@ export default function Programs() {
           ))}
         </div>
 
-        <Reveal delay={120}>
-          <p className="mt-8 text-center text-[14px] text-sage">
-            Fees are shared honestly on the first call — and only after you've had your
-            free class.
-          </p>
-        </Reveal>
       </div>
     </section>
   );
